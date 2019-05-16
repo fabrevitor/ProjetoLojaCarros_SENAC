@@ -1,13 +1,25 @@
 package view;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
-public class MenuPrincipal {
+public class MenuPrincipal extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7615599345861685012L;
 	private JFrame frmPalhocaMotors;
 
 	/**
@@ -38,16 +50,78 @@ public class MenuPrincipal {
 	 */
 	private void initialize() {
 		frmPalhocaMotors = new JFrame();
-		frmPalhocaMotors.setTitle("Palhoça Motors");
-		frmPalhocaMotors.setBounds(100, 100, 630, 355);
+		frmPalhocaMotors.setIconImage(
+				Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/icones/001-carro.png")));
+		frmPalhocaMotors.setResizable(false);
+		frmPalhocaMotors.setAutoRequestFocus(false);
+		frmPalhocaMotors.setTitle("Palho\u00E7a Motors");
+		frmPalhocaMotors.setBounds(100, 100, 600, 400);
 		frmPalhocaMotors.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPalhocaMotors.getContentPane().setLayout(null);
 
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 708, 22);
+		menuBar.setBounds(0, 0, 708, 50);
 		frmPalhocaMotors.getContentPane().add(menuBar);
 
-		JMenu menu = new JMenu("");
-		menuBar.add(menu);
+		JMenu mnClientes = new JMenu("  Clientes");
+		mnClientes.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/002-rede.png")));
+		menuBar.add(mnClientes);
+
+		JMenuItem mntmCadastrarCliente = new JMenuItem("Cadastrar");
+		mntmCadastrarCliente.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
+		mnClientes.add(mntmCadastrarCliente);
+
+		JMenuItem mntmConsultarCliente = new JMenuItem("Consultar");
+		mntmConsultarCliente.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
+		mnClientes.add(mntmConsultarCliente);
+
+		JMenu mnVendedores = new JMenu("  Vendedores");
+		mnVendedores.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/001-patrao.png")));
+		menuBar.add(mnVendedores);
+
+		JMenuItem mntmCadastrarVendedor = new JMenuItem("Cadastrar");
+		mntmCadastrarVendedor.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
+		mnVendedores.add(mntmCadastrarVendedor);
+
+		JMenuItem mntmConsultarVendedor = new JMenuItem("Consultar");
+		mntmConsultarVendedor.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
+		mnVendedores.add(mntmConsultarVendedor);
+
+		JMenu mnSobre = new JMenu("  Sobre");
+		mnSobre.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/012-servico-ao-cliente-1.png")));
+		menuBar.add(mnSobre);
+
+		JMenuItem mntmAjuda = new JMenuItem("Ajuda");
+		mntmAjuda.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/003-servico-ao-cliente.png")));
+		mnSobre.add(mntmAjuda);
+
+		JMenuItem mntmAutores = new JMenuItem("Autores");
+		mntmAutores.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/009-administrador.png")));
+		mnSobre.add(mntmAutores);
+
+		JButton btnVendas = new JButton("   Vendas");
+		btnVendas.setBackground(SystemColor.menu);
+		btnVendas.setForeground(Color.BLACK);
+		btnVendas.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/010-loja-online.png")));
+		btnVendas.setBounds(210, 150, 170, 90);
+		frmPalhocaMotors.getContentPane().add(btnVendas);
+
+		JButton btnRelatorios = new JButton("  Relat\u00F3rios");
+		btnRelatorios.setForeground(Color.BLACK);
+		btnRelatorios.setBackground(SystemColor.menu);
+		btnRelatorios.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/015-contrato.png")));
+		btnRelatorios.setBounds(410, 150, 170, 90);
+		frmPalhocaMotors.getContentPane().add(btnRelatorios);
+
+		JButton btnCarros = new JButton("  Carros");
+		btnCarros.setForeground(Color.BLACK);
+		btnCarros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCarros.setBackground(SystemColor.menu);
+		btnCarros.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/002-carro-1.png")));
+		btnCarros.setBounds(10, 150, 170, 90);
+		frmPalhocaMotors.getContentPane().add(btnCarros);
 	}
 }
