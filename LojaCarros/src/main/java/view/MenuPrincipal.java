@@ -6,6 +6,8 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 public class MenuPrincipal extends JFrame {
 
@@ -68,10 +71,12 @@ public class MenuPrincipal extends JFrame {
 		menuBar.add(mnClientes);
 
 		JMenuItem mntmCadastrarCliente = new JMenuItem("Cadastrar");
+		mntmCadastrarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, InputEvent.CTRL_MASK));
 		mntmCadastrarCliente.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
 		mnClientes.add(mntmCadastrarCliente);
 
 		JMenuItem mntmConsultarCliente = new JMenuItem("Consultar");
+		mntmConsultarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, InputEvent.CTRL_MASK));
 		mntmConsultarCliente.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
 		mnClientes.add(mntmConsultarCliente);
 
@@ -80,10 +85,12 @@ public class MenuPrincipal extends JFrame {
 		menuBar.add(mnVendedores);
 
 		JMenuItem mntmCadastrarVendedor = new JMenuItem("Cadastrar");
+		mntmCadastrarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, InputEvent.CTRL_MASK));
 		mntmCadastrarVendedor.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
 		mnVendedores.add(mntmCadastrarVendedor);
 
 		JMenuItem mntmConsultarVendedor = new JMenuItem("Consultar");
+		mntmConsultarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, InputEvent.CTRL_MASK));
 		mntmConsultarVendedor.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
 		mnVendedores.add(mntmConsultarVendedor);
 
@@ -92,10 +99,12 @@ public class MenuPrincipal extends JFrame {
 		menuBar.add(mnSobre);
 
 		JMenuItem mntmAjuda = new JMenuItem("Ajuda");
+		mntmAjuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_9, InputEvent.CTRL_MASK));
 		mntmAjuda.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/003-servico-ao-cliente.png")));
 		mnSobre.add(mntmAjuda);
 
 		JMenuItem mntmAutores = new JMenuItem("Autores");
+		mntmAutores.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_0, InputEvent.CTRL_MASK));
 		mntmAutores.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/009-administrador.png")));
 		mnSobre.add(mntmAutores);
 
@@ -114,6 +123,7 @@ public class MenuPrincipal extends JFrame {
 		frmPalhocaMotors.getContentPane().add(btnRelatorios);
 
 		JButton btnCarros = new JButton("  Carros");
+		btnCarros.setToolTipText("");
 		btnCarros.setForeground(Color.BLACK);
 		btnCarros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
