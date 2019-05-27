@@ -109,6 +109,11 @@ public class MenuPrincipal extends JFrame {
 		mnSobre.add(mntmAutores);
 
 		JButton btnVendas = new JButton("   Vendas");
+		btnVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+			}
+		});
 		btnVendas.setBackground(SystemColor.menu);
 		btnVendas.setForeground(Color.BLACK);
 		btnVendas.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/010-loja-online.png")));
@@ -127,6 +132,7 @@ public class MenuPrincipal extends JFrame {
 		btnCarros.setForeground(Color.BLACK);
 		btnCarros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 			}
 		});
 		btnCarros.setBackground(SystemColor.menu);
