@@ -6,16 +6,12 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
 
 public class MenuPrincipal extends JFrame {
 
@@ -63,55 +59,70 @@ public class MenuPrincipal extends JFrame {
 		frmPalhocaMotors.getContentPane().setLayout(null);
 
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 708, 50);
+		menuBar.setBounds(0, 0, 596, 50);
 		frmPalhocaMotors.getContentPane().add(menuBar);
 
 		JMenu mnClientes = new JMenu("  Clientes");
+		mnClientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TelaClientes c = new TelaClientes();
+				c.setVisible(true);
+			}
+		});
 		mnClientes.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/002-rede.png")));
 		menuBar.add(mnClientes);
 
-		JMenuItem mntmCadastrarCliente = new JMenuItem("Cadastrar");
-		mntmCadastrarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, InputEvent.CTRL_MASK));
-		mntmCadastrarCliente.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
-		mnClientes.add(mntmCadastrarCliente);
-
-		JMenuItem mntmConsultarCliente = new JMenuItem("Consultar");
-		mntmConsultarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, InputEvent.CTRL_MASK));
-		mntmConsultarCliente.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
-		mnClientes.add(mntmConsultarCliente);
-
+		/*
+		 * JMenuItem mntmCadastrarCliente = new JMenuItem("Cadastrar");
+		 * mntmCadastrarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1,
+		 * InputEvent.CTRL_MASK)); mntmCadastrarCliente.setIcon(new
+		 * ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
+		 * mnClientes.add(mntmCadastrarCliente);
+		 * 
+		 * JMenuItem mntmConsultarCliente = new JMenuItem("Consultar");
+		 * mntmConsultarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2,
+		 * InputEvent.CTRL_MASK)); mntmConsultarCliente.setIcon(new
+		 * ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
+		 * mnClientes.add(mntmConsultarCliente);
+		 */
 		JMenu mnVendedores = new JMenu("  Vendedores");
+		mnVendedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TelaVendedores v = new TelaVendedores();
+				v.setVisible(true);
+			}
+		});
 		mnVendedores.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/001-patrao.png")));
 		menuBar.add(mnVendedores);
 
-		JMenuItem mntmCadastrarVendedor = new JMenuItem("Cadastrar");
-		mntmCadastrarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, InputEvent.CTRL_MASK));
-		mntmCadastrarVendedor.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
-		mnVendedores.add(mntmCadastrarVendedor);
-
-		JMenuItem mntmConsultarVendedor = new JMenuItem("Consultar");
-		mntmConsultarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, InputEvent.CTRL_MASK));
-		mntmConsultarVendedor.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
-		mnVendedores.add(mntmConsultarVendedor);
-
+		/*
+		 * JMenuItem mntmCadastrarVendedor = new JMenuItem("Cadastrar");
+		 * mntmCadastrarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3,
+		 * InputEvent.CTRL_MASK)); mntmCadastrarVendedor.setIcon(new
+		 * ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
+		 * mnVendedores.add(mntmCadastrarVendedor);
+		 * 
+		 * JMenuItem mntmConsultarVendedor = new JMenuItem("Consultar");
+		 * mntmConsultarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4,
+		 * InputEvent.CTRL_MASK)); mntmConsultarVendedor.setIcon(new
+		 * ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
+		 * mnVendedores.add(mntmConsultarVendedor);
+		 */
 		JMenu mnSobre = new JMenu("  Sobre");
+		mnSobre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TelaSobre s = new TelaSobre();
+				s.setVisible(true);
+			}
+		});
 		mnSobre.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/012-servico-ao-cliente-1.png")));
 		menuBar.add(mnSobre);
-
-		JMenuItem mntmAjuda = new JMenuItem("Ajuda");
-		mntmAjuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_9, InputEvent.CTRL_MASK));
-		mntmAjuda.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/003-servico-ao-cliente.png")));
-		mnSobre.add(mntmAjuda);
-
-		JMenuItem mntmAutores = new JMenuItem("Autores");
-		mntmAutores.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_0, InputEvent.CTRL_MASK));
-		mntmAutores.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/009-administrador.png")));
-		mnSobre.add(mntmAutores);
 
 		JButton btnVendas = new JButton("   Vendas");
 		btnVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				TelaVendas v = new TelaVendas();
+				v.setVisible(true);
 			}
 		});
 		btnVendas.setBackground(SystemColor.menu);
@@ -120,7 +131,13 @@ public class MenuPrincipal extends JFrame {
 		btnVendas.setBounds(210, 150, 170, 90);
 		frmPalhocaMotors.getContentPane().add(btnVendas);
 
-		JButton btnRelatorios = new JButton("  Relat\u00F3rios");
+		JButton btnRelatorios = new JButton("  Relatórios");
+		btnRelatorios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TelaRelatorios r = new TelaRelatorios();
+				r.setVisible(true);
+			}
+		});
 		btnRelatorios.setForeground(Color.BLACK);
 		btnRelatorios.setBackground(SystemColor.menu);
 		btnRelatorios.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/015-contrato.png")));
@@ -132,7 +149,8 @@ public class MenuPrincipal extends JFrame {
 		btnCarros.setForeground(Color.BLACK);
 		btnCarros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				TelaCarros c = new TelaCarros();
+				c.setVisible(true);
 			}
 		});
 		btnCarros.setBackground(SystemColor.menu);
