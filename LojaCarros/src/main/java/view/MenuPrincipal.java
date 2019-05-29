@@ -6,12 +6,20 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
 
 public class MenuPrincipal extends JFrame {
 
@@ -20,6 +28,7 @@ public class MenuPrincipal extends JFrame {
 	 */
 	private static final long serialVersionUID = -7615599345861685012L;
 	private JFrame frmPalhocaMotors;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -59,32 +68,25 @@ public class MenuPrincipal extends JFrame {
 		frmPalhocaMotors.getContentPane().setLayout(null);
 
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 596, 50);
+		menuBar.setBounds(0, 0, 596, 43);
 		frmPalhocaMotors.getContentPane().add(menuBar);
 
 		JMenu mnClientes = new JMenu("  Clientes");
-		mnClientes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				TelaClientes c = new TelaClientes();
-				c.setVisible(true);
-			}
-		});
+		TelaClientes c = new TelaClientes();
+		c.setVisible(true);
 		mnClientes.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/002-rede.png")));
 		menuBar.add(mnClientes);
 
-		/*
-		 * JMenuItem mntmCadastrarCliente = new JMenuItem("Cadastrar");
-		 * mntmCadastrarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1,
-		 * InputEvent.CTRL_MASK)); mntmCadastrarCliente.setIcon(new
-		 * ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
-		 * mnClientes.add(mntmCadastrarCliente);
-		 * 
-		 * JMenuItem mntmConsultarCliente = new JMenuItem("Consultar");
-		 * mntmConsultarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2,
-		 * InputEvent.CTRL_MASK)); mntmConsultarCliente.setIcon(new
-		 * ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
-		 * mnClientes.add(mntmConsultarCliente);
-		 */
+		JMenuItem mntmCadastrarCliente = new JMenuItem("Cadastrar");
+		mntmCadastrarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, InputEvent.CTRL_MASK));
+		mntmCadastrarCliente.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
+		mnClientes.add(mntmCadastrarCliente);
+
+		JMenuItem mntmConsultarCliente = new JMenuItem("Consultar");
+		mntmConsultarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, InputEvent.CTRL_MASK));
+		mntmConsultarCliente.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
+		mnClientes.add(mntmConsultarCliente);
+
 		JMenu mnVendedores = new JMenu("  Vendedores");
 		mnVendedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -95,20 +97,25 @@ public class MenuPrincipal extends JFrame {
 		mnVendedores.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/001-patrao.png")));
 		menuBar.add(mnVendedores);
 
-		/*
-		 * JMenuItem mntmCadastrarVendedor = new JMenuItem("Cadastrar");
-		 * mntmCadastrarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3,
-		 * InputEvent.CTRL_MASK)); mntmCadastrarVendedor.setIcon(new
-		 * ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
-		 * mnVendedores.add(mntmCadastrarVendedor);
-		 * 
-		 * JMenuItem mntmConsultarVendedor = new JMenuItem("Consultar");
-		 * mntmConsultarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4,
-		 * InputEvent.CTRL_MASK)); mntmConsultarVendedor.setIcon(new
-		 * ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
-		 * mnVendedores.add(mntmConsultarVendedor);
-		 */
+		JMenuItem mntmCadastrarVendedor = new JMenuItem("Cadastrar");
+		mntmCadastrarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, InputEvent.CTRL_MASK));
+		mntmCadastrarVendedor.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/man.png")));
+		mnVendedores.add(mntmCadastrarVendedor);
+
+		JMenuItem mntmConsultarVendedor = new JMenuItem("Consultar");
+		mntmConsultarVendedor.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, InputEvent.CTRL_MASK));
+		mntmConsultarVendedor.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/005-trabalhador.png")));
+		mnVendedores.add(mntmConsultarVendedor);
+
 		JMenu mnSobre = new JMenu("  Sobre");
+		mnSobre.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				TelaSobre s = new TelaSobre();
+				s.setVisible(true);
+			}
+		});
+		mnSobre.setHorizontalAlignment(SwingConstants.RIGHT);
 		mnSobre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				TelaSobre s = new TelaSobre();
@@ -117,6 +124,16 @@ public class MenuPrincipal extends JFrame {
 		});
 		mnSobre.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/icones/012-servico-ao-cliente-1.png")));
 		menuBar.add(mnSobre);
+
+//		// Dentro do construtor de um JPanel
+//		final MenuPrincipal paiDoPainel = (MenuPrincipal) SwingUtilities.getWindowAncestor(this);
+//		btnChamarPai = new JButton("Chamar PAI");
+//		btnChamarPai.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent evt) {
+//				paiDoPainel.chamarPai();
+//			}
+//		});
+//		;
 
 		JButton btnVendas = new JButton("   Vendas");
 		btnVendas.addActionListener(new ActionListener() {

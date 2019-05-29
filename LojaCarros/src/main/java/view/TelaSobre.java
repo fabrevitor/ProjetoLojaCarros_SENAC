@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -31,8 +32,10 @@ public class TelaSobre extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaSobre() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setTitle("Palho\u00E7a Motors - Sobre");
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(TelaSobre.class.getResource("/icones/012-servico-ao-cliente-1.png")));
+		setBounds(100, 100, 449, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
